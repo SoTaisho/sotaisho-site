@@ -22,7 +22,8 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-                {siteConfig.brandName}
+                Sotaisho club NFT
+
                 <span className="block text-white/70 text-2xl sm:text-3xl mt-3">
                   Sovereign 001 — The Genesis Artifact
                 </span>
