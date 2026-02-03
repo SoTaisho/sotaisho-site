@@ -8,8 +8,7 @@ import { NFTCard } from "@/components/NFTCard";
 import { siteConfig } from "@/lib/site-config";
 
 export default function HomePage() {
-  // إضافة فحص للتأكد من وجود البيانات لمنع أخطاء الـ Rendering
-  const featured = siteConfig.nftsFallback || [];
+  const featured = siteConfig.nftsFallback ?? [];
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -28,11 +27,11 @@ export default function HomePage() {
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">
                     {siteConfig.brandName}
                   </span>
-                  <span className="block text-white/60 text-xl sm:text-2xl mt-4 font-light tracking-widest uppercase">
+                  <span className="block text-white/50 text-xl sm:text-2xl mt-4 font-light tracking-widest uppercase">
                     Sovereign 001 — The Genesis Artifact
                   </span>
                 </h1>
-                <p className="text-white/70 leading-relaxed max-w-lg text-lg">
+                <p className="text-white/60 leading-relaxed max-w-lg text-lg">
                   {siteConfig.description}
                 </p>
               </div>
@@ -51,37 +50,36 @@ export default function HomePage() {
                 </ButtonLink>
               </div>
 
-              {/* تحسين عرض زر المحفظة للجوال */}
               <div className="sm:hidden mt-6">
                 <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <span className="text-sm font-medium">Access Portal</span>
+                  <span className="text-sm font-medium text-white/70">Access Portal</span>
                   <ConnectWallet />
                 </div>
               </div>
             </div>
 
             <div className="relative group">
-              {/* تأثير التوهج خلف الصورة ليناسب العمل الفني */}
               <div className="absolute -inset-10 rounded-[3rem] bg-white/5 blur-3xl group-hover:bg-white/10 transition-all duration-700"></div>
               
               <div className="relative rounded-[2.5rem] border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                 <div className="relative aspect-square rounded-[2rem] overflow-hidden border border-white/10">
                   <Image
-                    src="/nfts/cipher-01.png" // تأكد من وجود الصورة بهذا المسار
+                    src="/nfts/cipher-01.png"
                     alt="Genesis Artifact"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <div className="mt-6 flex items-center justify-between px-2">
                   <div>
-                    <div className="text-sm font-bold tracking-wider">Aetheric #01</div>
+                    <div className="text-sm font-bold tracking-wider text-white">Aetheric #01</div>
                     <div className="text-[10px] uppercase tracking-widest text-white/40 mt-1">Status: Rare</div>
                   </div>
                   <Link
                     href="/nft/01"
-                    className="text-xs rounded-full px-4 py-2 bg-white text-black font-bold hover:bg-white/90 transition"
+                    className="text-xs rounded-full px-4 py-2 bg-white text-black font-bold hover:bg-white/90 transition-colors"
                   >
                     Details
                   </Link>
@@ -100,7 +98,7 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold tracking-tight">The Collection</h2>
               <p className="text-white/50 text-sm mt-2 font-mono">Index: #01 → #50</p>
             </div>
-            <Link href="/gallery" className="group text-sm text-white/70 hover:text-white flex items-center gap-2">
+            <Link href="/gallery" className="group text-sm text-white/70 hover:text-white flex items-center gap-2 transition-colors">
               Browse All <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
@@ -109,13 +107,52 @@ export default function HomePage() {
             {featured.length > 0 ? (
               featured.map((item) => <NFTCard key={item.id} item={item} />)
             ) : (
-              <p className="col-span-full text-center py-10 text-white/20">No items found in the vault.</p>
+              <div className="col-span-full py-20 text-center border border-dashed border-white/10 rounded-3xl text-white/20">
+                No artifacts found in the vault.
+              </div>
             )}
           </div>
         </Container>
       </section>
 
-      {/* Share & About Sections ... تبقى كما هي مع تحسينات طفيفة في الـ Padding */}
+      {/* About Section */}
+      <section id="about" className="py-20">
+        <Container>
+          <div className="rounded-[2.5rem] border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 sm:p-12">
+            <h2 className="text-3xl font-bold mb-6">About</h2>
+            <div className="text-white/60 leading-relaxed space-y-4 max-w-3xl text-lg">
+              <p>
+                <span className="font-semibold text-white">
+                  {siteConfig.brandName}
+                </span>{" "}
+                is a boutique NFT identity—built around scarcity, prestige, and unmistakable presence.
+              </p>
+              <p>
+                Only <span className="font-semibold text-white">50</span> artifacts will ever exist. This site is the official showcase for the collection and the story behind it.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+              {[
+                { label: "Total Supply", value: "50" },
+                { label: "Blockchain", value: "Ethereum" },
+                { label: "Marketplace", value: "OpenSea" }
+              ].map((stat, idx) => (
+                <div key={idx} className="rounded-2xl border border-white/10 bg-black/40 p-6">
+                  <div className="text-white/40 text-xs uppercase tracking-widest mb-1">{stat.label}</div>
+                  <div className="text-2xl font-bold">{stat.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-10">
+        <Container>
+          <ShareBar />
+        </Container>
+      </section>
     </main>
   );
 }
