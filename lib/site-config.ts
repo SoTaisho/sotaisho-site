@@ -1,5 +1,5 @@
 export const siteConfig = {
-  "brandName": "Sotaisho club",
+  "brandName": "Sotaisho clubNFT",
   "domain": "sotaishoclub.xyz",
   "collectionUrl": "https://opensea.io/collection/immortal-crown-unit-001",
   "primaryColors": {
