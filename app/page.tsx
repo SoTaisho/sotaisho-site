@@ -6,10 +6,8 @@ import { ShareBar } from "@/components/ShareBar";
 import { ConnectWallet } from "@/components/ConnectWallet";
 import { NFTCard } from "@/components/NFTCard";
 import { siteConfig } from "@/lib/site-config";
-
 export default function HomePage() {
   const featured = siteConfig.nftsFallback || [];
-
   return (
     <main>
       {/* Hero Section */}
