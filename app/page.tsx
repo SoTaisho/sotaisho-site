@@ -21,17 +21,13 @@ export default function HomePage() {
                 Official site • {siteConfig.domain}
               </div>
 
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-  <span className="block">
-    Sotaisho Club NFT
-  </span>
-
-  <span className="block text-white/70 text-2xl sm:text-3xl mt-4">
-    Sovereign 001 — The Genesis Artifact
-  </span>
-</h1>
-
-
+              {/* ✅ FIX: split the title into 2 real lines */}
+              <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
+                <span className="block">{siteConfig.brandName}</span>
+                <span className="block text-white/70 text-2xl sm:text-3xl mt-3">
+                  Sovereign 001 — The Genesis Artifact
+                </span>
+              </h1>
 
               <p className="text-white/70 leading-relaxed">
                 {siteConfig.description}
@@ -39,7 +35,11 @@ export default function HomePage() {
 
               <div className="flex flex-wrap gap-3" id="links">
                 <ButtonLink href="/gallery">View Gallery</ButtonLink>
-                <ButtonLink href={siteConfig.collectionUrl} target="_blank" variant="ghost">
+                <ButtonLink
+                  href={siteConfig.collectionUrl}
+                  target="_blank"
+                  variant="ghost"
+                >
                   View on OpenSea
                 </ButtonLink>
               </div>
@@ -52,8 +52,15 @@ export default function HomePage() {
               </div>
 
               <div className="text-xs text-white/50">
-                Tip: put your NFT images in <code className="px-1 py-0.5 rounded bg-white/10">/public/nfts</code> with names like{" "}
-                <code className="px-1 py-0.5 rounded bg-white/10">cipher-01.png</code>.
+                Tip: put your NFT images in{" "}
+                <code className="px-1 py-0.5 rounded bg-white/10">
+                  /public/nfts
+                </code>{" "}
+                with names like{" "}
+                <code className="px-1 py-0.5 rounded bg-white/10">
+                  cipher-01.png
+                </code>
+                .
               </div>
             </div>
 
@@ -119,17 +126,15 @@ export default function HomePage() {
             <h2 className="text-2xl font-bold mb-4">About</h2>
             <div className="text-white/70 leading-relaxed space-y-4">
               <p>
-                <span className="block font-semibold text-white">
-  Sotaisho Club NFT
-</span>
-
-                  
-</span> is a boutique NFT identity
-                built around scarcity, prestige, and unmistakable presence.
+                <span className="font-semibold text-white">
+                  {siteConfig.brandName}
+                </span>{" "}
+                is a boutique NFT identity—built around scarcity, prestige, and unmistakable
+                presence.
               </p>
               <p>
-                Only <span className="font-semibold text-white">50</span> artifacts will ever exist. This site is the official showcase for the
-                collection and the story behind it.
+                Only <span className="font-semibold text-white">50</span> artifacts will ever exist. This site is the official
+                showcase for the collection and the story behind it.
               </p>
             </div>
 
