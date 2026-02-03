@@ -21,7 +21,7 @@ export default function HomePage() {
                 Official site • {siteConfig.domain}
               </div>
 
-             <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
   <span className="block">
     Sotaisho Club NFT
   </span>
@@ -30,6 +30,7 @@ export default function HomePage() {
     Sovereign 001 — The Genesis Artifact
   </span>
 </h1>
+
 
 
               <p className="text-white/70 leading-relaxed">
