@@ -115,8 +115,12 @@ export default function HomePage() {
             <h2 className="text-2xl font-bold mb-4">About</h2>
             <div className="text-white/70 leading-relaxed space-y-4">
               <p>
-                <span className="font-semibold text-white">Sotaisho clubNFT
-</span> is a boutique NFT identity—
+                <span className="block font-semibold text-white">
+  Sotaisho Club NFT
+</span>
+
+                  
+</span> is a boutique NFT identity
                 built around scarcity, prestige, and unmistakable presence.
               </p>
               <p>
